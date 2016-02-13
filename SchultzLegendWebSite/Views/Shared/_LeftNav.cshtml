@@ -1,0 +1,8 @@
+﻿<div class="col-md-2 nav-left">
+    @foreach (SchultzLegendWebSite.Utilities.Page page in Model.TrackerPages)
+    {
+        <div class="nav-left-item">
+            <a href="@page.Link">@page.Name</a>
+        </div>
+    }
+</div>

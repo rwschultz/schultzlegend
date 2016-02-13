@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Progress Tracker - Schultz Legend";
+}
+<div class="row">
+    <div class="col-md-12">
+        <h2>Summary</h2>
+        @foreach (SchultzLegendWebSite.Utilities.Page page in Model.TrackerPages)
+        {
+            if (page.Name != Model.CurrentPage.Name)
+            {
+                <div class="col-md-4 summary">
+                    <h3>@page.Name</h3>
+                    <hr />
+                    <div class="summary-content">
+                        @if(page.Name == "Tasks")
+                        {
+                            <p class="text-center"><b>@Model.TaskComplete out of @Model.TaskTotal task completed</b></p>
+                        }
+                    </div>
+                    <div class="summary-more">
+                        <a href="@page.Link">More...</a>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+
+</div>
+

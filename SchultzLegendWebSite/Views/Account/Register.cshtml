@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Register - Schultz Legend";
+}
+<div id="register" class="col-md-12">
+    <h2>Register</h2>
+
+    @Html.AntiForgeryToken()
+    
+    <h4>Create a new account</h4>
+    <hr />
+
+    <label class="col-md-2 control-label">Email</label>
+    <div class="col-md-10">
+        <input class="form-control" id="tb-email" type="text">
+    </div>
+
+    <label class="col-md-2 control-label">Password</label>
+    <div class="col-md-10">
+        <input class="form-control" id="tb-password" type="password">
+        <span>
+            Password must be at least 8 characters long<br />
+            and contain at least one number, uppercase<br />
+            letter, and lowercase letter.
+        </span>
+    </div>
+
+    <label class="col-md-2 control-label">Confirm password</label>
+    <div class="col-md-10">
+        <input class="form-control" id="tb-confpassword" type="password">
+    </div>
+    
+    <div class="col-md-offset-2 col-md-10">
+        <input id="btn-register" type="button" class="btn btn-default" value="Register" />
+    </div>
+    <div class="col-md-offset-2 col-md-10">
+        <span class="field-validation-valid text-danger" id="error">&nbsp;</span>
+    </div>
+    
+</div>
+<div id="check-email" class="col-md-12 text-center hidden">
+    <p class="text-center">Please check your inbox for a confirmation email to complete the registration process!</p>
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/Scripts/account.js")
+}

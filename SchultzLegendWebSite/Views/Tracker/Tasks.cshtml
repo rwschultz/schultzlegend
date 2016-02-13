@@ -1,0 +1,124 @@
+﻿@using SchultzLegendWebSite.Utilities;
+
+@{
+    ViewBag.Title = "Tasks - Progress Tracker - Schultz Legend";
+}
+
+    <h2>Tasks</h2>
+
+    
+
+    <a href="#" class="open-modal" data-type="new" data-toggle="modal" data-target="#new-task-modal">+Add Task</a>
+    <span class="text-danger hidden" id="error"><strong>Sorry, an error has occurred.</strong></span>
+    <ul id="parent-list" class="task-list-parent">
+        @Html.Partial("TaskRow", new ViewDataDictionary { { "Tasks", Model.Tasks }, { "RowType", "parent" } })
+        <li id="task-li-id" class="bg-task-parent hidden" >
+            <div>
+                <input id="cb-id" type="checkbox" data-taskid=":id:" />
+                <a class="task-minmax" data-taskid=":id:"><large>-</large></a>
+                <label id="lb-id" for="cb-id">:name:</label>
+
+                <div class="dropdown task-dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">+</a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#" class="open-modal"
+                               data-taskid=":id:"
+                               data-type="change"
+                               data-toggle="modal"
+                               data-target="#change-name-modal">Change Task Name</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#" class="open-modal"
+                               data-taskid=":id:"
+                               data-type="add"
+                               data-toggle="modal"
+                               data-target="#new-task-modal">Add Subtask</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#" class="open-modal"
+                               data-taskid=":id:"
+                               data-type="remove"
+                               data-toggle="modal"
+                               data-target="#delete-task-modal">Remove Task</a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="task-list" id="task-children-id">
+                </ul>
+            </div>
+
+        </li>
+    </ul>
+  
+
+<div id="change-name-modal" class="modal fade task-modal" role="form">
+    <div class="modal-dialog modal-sm">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Change Task Name</h4>
+            </div>
+            <div class="modal-body">
+                <input class="form-control" id="tb-task-name" type="text" value="">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default task-btn-change-name" data-taskid="" data-dismiss="modal">Save</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="new-task-modal" class="modal fade task-modal" role="form">
+    <div class="modal-dialog modal-sm">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">New Task</h4>
+            </div>
+            <div class="modal-body">
+                <input class="form-control" id="tb-subtask-name" type="text" placeholder="Task Name...">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default task-btn-new-task" data-dismiss="modal">Add</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="delete-task-modal" class="modal fade task-modal" role="form">
+    <div class="modal-dialog modal-sm">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Delete Task</h4>
+            </div>
+            <div class="modal-body">
+                <small>Are you sure you want to delete this task?</small>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default task-btn-remove-task" data-dismiss="modal">Yes</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/Scripts/tasks.js")
+}
+
+

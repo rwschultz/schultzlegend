@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "Login - Schultz Legend";
+}
+<div class="col-md-12">
+    <h2>Login</h2>
+
+    @Html.AntiForgeryToken()
+
+    <h4>Log in to your account</h4>
+    <hr />
+    <label class="col-md-2 control-label">Email</label>
+    <div class="col-md-10">
+        <input class="form-control" id="tb-email" type="text">
+    </div>
+
+    <label class="col-md-2 control-label">Password</label>
+    <div class="col-md-10">
+        <input class="form-control" id="tb-password" type="password">
+    </div>
+
+    <div class="col-md-offset-2 col-md-10">
+        <div class="checkbox add20pxleft">
+            <input id="cb-remember-me" type="checkbox">
+            <label for="RememberMe">Remember me?</label>
+        </div>
+    </div>
+
+    <div class="col-md-offset-2 col-md-10">
+        <input type="button" id="btn-login" value="Log in" class="btn btn-default" />
+    </div>
+    <div class="col-md-offset-2 col-md-10">
+        <span class="field-validation-valid text-danger" id="error">&nbsp;</span>
+    </div>
+
+    <div class="col-md-offset-2 col-md-10">
+        <p>
+            <a href="/ForgotPassword">Forgot Password?</a>
+        </p>
+    </div>
+
+    <div class="col-md-offset-2 col-md-10">
+        <p>
+            <a href="/Register">Register as a new user</a>
+        </p>
+    </div>
+   
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/Scripts/account.js")
+}

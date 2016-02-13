@@ -1,0 +1,197 @@
+﻿html {
+    height: 100%;
+}
+
+.navbar hr{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    color:white;
+}
+
+.navbar-fixed-top {
+    border-bottom-width: 0px;
+}
+
+.nav-left {
+   padding-top: 20px;
+   padding-left: 0px;
+   padding-right: 0px;
+   min-height: 100%;
+   margin-bottom: 50px;
+}
+
+.nav-left-item {
+    margin-bottom: 15px;
+    padding-left: 15px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.nav-left-item a {
+    color: #ffffff;
+    font-size: 25px; 
+    width: 100%;
+}
+
+.under-top-nav {
+    margin-bottom: 50px;
+    height: 100%;
+}
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-size: cover;
+    background-repeat:no-repeat;
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 1) 10%, rgba(184, 134, 11, 1) 80%, rgba(0, 0, 0, 1));
+    background: -moz-linear-gradient(rgba(0, 0, 0, 1) 10%, rgba(184, 134, 11, 1) 80%, rgba(0, 0, 0, 1));
+    background: -o-linear-gradient(rgba(0, 0, 0, 1) 10%, rgba(184, 134, 11, 1) 80%, rgba(0, 0, 0, 1));
+    background: linear-gradient(rgba(0, 0, 0, 1) 10%, rgba(184, 134, 11, 1) 80%, rgba(0, 0, 0, 1)) fixed;
+    height:100%;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    border-left-color: white;
+    border-left-style: outset;
+    min-height: 100%;
+    padding-bottom: 50px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.summary {
+    min-height: 200px;
+    max-width: 400px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 10px 10px 10px 10px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.summary hr {
+    margin-top: 0px;
+}
+
+.summary-content {
+    
+}
+
+.summary-more {
+    position:absolute;
+    bottom: 0;
+    right: 5px;
+}
+
+.summary-more a {
+    color: #ffffff;
+    font-size: 15px; 
+}
+
+.summary h3 {
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+
+footer{
+    background-color: #222;
+    display: table;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width:100%;
+}
+
+footer hr{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    color:white;
+}
+
+.white {
+    color: #ffffff;
+}
+
+input {
+    margin-top: 10px;
+}
+
+.control-label {
+    margin-top: 10px;
+}
+
+.text-danger {
+    color:darkred;
+}
+
+.add20pxleft {
+    margin-left: 20px;
+}
+
+.bg-task-parent {
+    background-color: rgba(255, 255, 255, 0.2);
+    width:100%;
+    margin-bottom:5px;
+    padding-left: 15px;
+    padding-bottom:5px;
+    padding-top:5px;
+}
+
+.bg-task-child {
+    width:100%;
+    padding-left: 40px;
+    margin-top:2px;
+    margin-bottom:2px;
+
+}
+
+.bg-task-child div{
+    padding-left:2px;
+}
+
+.task-list{
+    list-style-type: none;
+    font-size: 20px;
+    padding-left: 0px;
+}
+
+.task-list-parent{
+    margin-bottom: 200px;
+    list-style-type: none;
+    font-size: 20px;
+    padding-left: 0px;
+}
+
+.task-dropdown{
+    display:inline-block;
+}
+
+.task-modal{
+    color: #000000;
+}
+
+.task-glyphicon{
+    font-size: 0.8em;
+}
+
+
+.navbar-image {
+    padding: 10px 0px 10px 10px;
+}

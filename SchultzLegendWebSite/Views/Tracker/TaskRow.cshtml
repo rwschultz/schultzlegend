@@ -1,0 +1,45 @@
+﻿@using SchultzLegendWebSite.Utilities
+
+@foreach (Task task in (ViewData["Tasks"] as List<Task>))
+{
+    <li id="task-li-@task.TaskId" class="@(ViewData["RowType"].ToString() == "parent" ? "bg-task-parent" : "bg-task-child")">
+        <div>
+            <input id="cb-@task.TaskId" type="checkbox" class="task-box" 
+                   data-taskid="@task.TaskId" 
+                   @(task.Complete == 100 ? "checked" : String.Empty) />
+            <a class="task-minmax" data-taskid="@task.TaskId"><b>-</b></a>
+            <label id="lb-@task.TaskId" for="cb-@task.TaskId">@task.Name</label>
+            
+            <div class="dropdown task-dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="task-glyphicon glyphicon glyphicon-align-justify"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#" class="open-modal" 
+                           data-taskid="@task.TaskId"
+                           data-type="change" 
+                           data-toggle="modal" 
+                           data-target="#change-name-modal">Change Task Name</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#" class="open-modal" 
+                           data-taskid="@task.TaskId" 
+                           data-type="add" 
+                           data-toggle="modal" 
+                           data-target="#new-task-modal">Add Subtask</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#"class="open-modal" 
+                           data-taskid="@task.TaskId" 
+                           data-type="remove" 
+                           data-toggle="modal" 
+                           data-target="#delete-task-modal">Remove Task</a></li>
+                </ul>
+            </div>
+            <ul class="task-list" id="task-children-@task.TaskId">
+                @if (task.Children.Count > 0)
+                {
+                    @Html.Partial("TaskRow", new ViewDataDictionary { { "Tasks", task.Children }, { "RowType", "child" } })
+                }
+            </ul>
+        </div>
+        
+    </li>
+    
+}

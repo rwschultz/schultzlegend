@@ -1,0 +1,68 @@
+﻿@using System.Web.Security;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <!-- for FF, Chrome, Opera -->
+    <link rel="icon" type="image/png" href="~/Images/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="~/Images/favicon-32x32.png" sizes="32x32">
+
+    <!-- for IE -->
+    <link rel="icon" type="image/x-icon" href="~/Images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="~/Images/favicon.ico" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body class="white">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-header">
+            <a class="navbar-brand navbar-image" href="/"><img alt="Brand" src="~/Images/winged-bear-logo-white.png" /></a>
+            <a class="navbar-brand" href="/">Schultz Legend</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav pull-left">
+                <li><a href="/Tracker">Progress Tracker</a></li>
+            </ul>
+            <ul class="nav navbar-nav pull-right">
+                @if (HttpContext.Current.User.Identity.IsAuthenticated)
+                {
+                    <li><a href="/Account">@Model.Email</a></li>
+                    <li><a href="/SignOut?from=@HttpContext.Current.Request.RawUrl">Sign Out</a></li>
+                }
+                else
+                {
+                <li><a href="/Register">Register</a></li>
+                <li><a href="/Login">Login</a></li>
+                }
+            </ul>
+        </div>
+        <hr />
+    </div>
+
+        <div class="under-top-nav">
+            @if (Model.ProgressTracker)
+            {
+                @Html.Partial("_LeftNav")
+                <div class="col-md-10 body-content">
+                    @RenderBody()
+                </div>
+                <div style="clear:both;"></div>
+            }
+            else
+            {
+                @RenderBody()
+            }
+        </div>
+    
+    <footer class="navbar-fixed-bottom">
+        <hr />
+        <p>&copy; @DateTime.Now.Year - Schultz Legend</p>
+    </footer>
+    
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
